@@ -4,3 +4,94 @@ author: "Gabriele Chignoli"
 date: "9/28/2017"
 output: html_document
 ---
+
+## Exercise 1
+
+**RStudio** is a coding environnement where you can use all all the **R** coding potential.  
+Thanks to the **Git** integration all your works will be available for sharing and collaboration.
+
+## Exercise 2
+
+```{r}
+possible_outcomes <- c(0, 1, 2, 3, 4, 5)
+outcome_probabilities <- c(0.1, 0.5, 0.2, 0.1, 0.05, 0.05)
+n_data_points <- 400
+
+set.seed(1)
+fake_data_points <- sample (possible_outcomes,
+                            n_data_points,
+                            replace=T,
+                            prob=outcome_probabilities)
+set.seed(NULL)
+
+fake_data_set <- tibble::data_frame(`Fake measurement`=fake_data_points)
+```
+
+*On my statements explanations*  
+    I once read about some **R** basics in a hot summer day two years ago while I was deciding to study a programming language. I finally ended up doing some Swift, so all I remember from that small lecture is the major reason for my answers:
+
+* **Statement 1.** `possible_outcomes` is the first variable created in this code chunk, the `<-` element after a variable name indicates what are the values (all must be of the same type) we assign to it.
+    + Instead of a common programming *variable* **R**'s ones can be more dynamic, we can assign multiple values to one variable and every time we do an operation on this variables it will be applied to all of its values;
+    + *Vectors* like Variables made by all the values we assign to them in the `c()` expression, we can access to a specific value calling it like a common array (index starting at 1) `possible_outcomes[3]` corresponds to `[1] 2`;
+    + When we *"print"* a variable on the *RStudio* console, a number inside brackets also appears, it indicates the vector *level* we are looking to;
+
+* **Statement 2.** `outcome_probabilities` like the first one, this variable too has 5 numerical values in it, this time they are not just integer numbers but decimal ones. By it name we can guess this vector will indicates the probabilities which will be applied to the outcomes definied earlier.
+
+* **Statement 3.** `n_data_points` this time our variable is just an integer, its value maybe indicates the number of measurements made to obtain our outcomes.
+
+* **Statement 4.** `set.seed()` the help in **R** tells us this is a function which generates random numbers, my first doubt raised from the word seed: I thought that normally a seed doesn't grow randomly, we normally know to what a seed will grow.
+Starting from this I made some research[^1]  and I found some interesting facts:  
+
+    > The seed number you choose is the starting point used in the generation of a sequence of random numbers, which is why (provided you use the same pseudo-random number generator) you'll obtain the same results given the same seed number.[^2]  
+
+    + Actually the integer argument is the starting point and it always produces the same result as the second example in this reference[^3]
+- re-calling this function with NULL argument (like some lines below in the chunk) reset it, preventing us from obtaining another time the same "random" numbers.
+
+* **Statement 5.** here we use the `sample()` function (I just remembered its result but not how to define its arguments), basically it process integers in argument returning a set (of determined size) of these datas. For arguments explanation I found the **RStudio** help useful enough.
+    1. Integers set from which to sample datas = our *statement 1*;
+    2. Size of resulting set = our *statement 3*;
+    3. Boolean value `replace`indicating if resulting set may contain replacements. In our case we have the obligation to say True due to size being larger than datas;
+    4. A probability weights vector = our *statement 2*;
+
+* **Statement 6.** In our last statement the most important element is the package `tibble`, it made my first obstacle in this assignement with the message:  
+    
+    > Line 15 Error in loadNamespace(name) : there is no package called 'tibble' Calls: <Anonymous> ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous> Execution halted
+    
+    Asking for some help to a fellow, she told me how to install this package, so I made some research to understand how it works and why when I run `fake_data_set` it return
+`# A tibble: 400 x 1  
+   "Fake measurement"  
+                <dbl>  
+ 1                  1  
+ 2                  1  
+ 3                  2  
+ 4                  5  
+ 5                  1  
+ 6                  0  
+ 7                  5  
+ 8                  2  
+ 9                  2  
+10                  1  
+# ... with 390 more rows`  
+Using *help("tibble")* the topic shown is **Build a list**, it explains basically how *list()* and *data.frame()* functions can be used to show data. Doing some deeper research on the web I found out that the *tibble* package in a certain way comes from *data.frame()*, representing a modern reimagining[^4] of it.
+
+```{r}
+ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) + ggplot2::geom_histogram(bins=5, colour="black", fill="lightgrey")
+```
+
+## Exercise 3
+
+
+## Exercise 4
+
+
+## Exercise 5
+
+
+## Exercise 6
+
+
+
+[^1]:<http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R>
+[^2]:<https://stats.stackexchange.com/questions/86285/random-number-set-seedn-in-r>
+[^3]:<https://stackoverflow.com/questions/13605271/reasons-for-using-the-set-seed-function>
+[^4]:<https://blog.rstudio.com/2016/03/24/tibble-1-0-0/>
