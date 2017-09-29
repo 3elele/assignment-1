@@ -174,10 +174,12 @@ ggplot2::ggplot(stressshift::stress_shift_permit, ggplot2::aes(x=0, fill=Syllabl
 
 We now are going to discuss two hypotheses, like we did before with the irises example:
 
-* **Hypothesis A**: **Permit (noun)** and **permit (verb)** are the same in terms of their stress.
-* **Hypothesis B**: **Permit (noun)** and **permit (verb)** are different in terms of their stress.
-
-Why isn’t the question already answered for us by this graph? Explain what the two hypotheses really mean, like you did in the previous exercise. Make reference to the figures above. Be specific about exactly what we would predict to observe for permit (noun) and permit (verb) under each of the two hypotheses.
+* **Hypothesis A**: **Permit (noun)** and **permit (verb)** are the same in terms of their stress.  
+    In order to affirm this our first assomption we could start thinking under a phonological point of view. We affirm the word permit /pɜrmɪt/ can be realised on  surface with both stress on the first or on the second syllable, this stress rotation, as we can see from the merged data, is more common on the second place but not really dominant. The underlying form which could make the hypothesis A to prevail has to be a stress constraints free form for this word which permit it to pretty randomly realise its stress, but looking at the separate plots, we notice a dominance realisation of stress characterising the two word categories.  
+    
+* **Hypothesis B**: **Permit (noun)** and **permit (verb)** are different in terms of their stress.  
+    The last idea from the hypothesis A is the starting point to assume the veracity of hypothesis B. When we look at individual realisation of stress in permit as noun or verb, we can firmly say the verb is marked by the stress on the syllable 2 while noun is marked on syllable 1, so why this net difference between two words which are nearly the same under various aspects (semantic, morphological, phonological) ? So the explanation will not take into account semantical or morphological elements because they don't really realise the variations we want to focus on.  
+    We can consider syntactic and phonological variation strongly linked in our case. When the segment /pɜrmɪt/ changes its syntactic status from noun to verb, it also changes its mostly attested realisation of stress from first to second syllable. Doing some research I found out that most of two syllable verbs in english put the stress on syllable 2 and most of two syllables nouns put it on the first[^6]. In my idea this could also have a prosodic reason for the verb to realise the stress on syllable 2, it could be a kind of heritage from the infinite form `to *verb`, where mostly stress goes to the last syllable due to the presence of the clitic element.
 
 ## Exercise 5
 ```{r, echo=FALSE}
@@ -207,3 +209,4 @@ Why isn’t the question already answered for us by this graph? Explain what the
 [^3]:<https://stackoverflow.com/questions/13605271/reasons-for-using-the-set-seed-function>
 [^4]:<https://blog.rstudio.com/2016/03/24/tibble-1-0-0/>
 [^5]: *last four slides* <http://jacqueline.vaissiere.ilpga.fr/COURS2017/COURS1.pdf>
+[^6]:<https://www.englishclub.com/pronunciation/word-stress-rules.htm>
