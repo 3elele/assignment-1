@@ -142,20 +142,17 @@ ggplot2::ggplot(iris_groups23, ggplot2::aes(x=Sepal.Width)) +
 Once we have discussed the histograms, we can now start to make hypothesis and discussing what all our measurements on sepal width really mean:
 
 * **Hypothesis A**: The virginica and versicolor iris species are the same in terms of sepal width.  
-    Given our three histograms and our 100 measurements we can consider these two species as just one great set. First we consider the versicolor data, sepal width vary from 2cm to 3.4 with a greater population between 2.7cm and 3cm while the virginica measurement show us a width variation from 2.2cm to 3.8 with most of the samples taking 2.8cm and 3cm. Just looking at this major distribution, we can assume both spieces develop the most between 2.7-3cm. When we look at the unique histogram showing all measurements we see the core of sepal witdh for irises, but not only this, we also can assume that measurements complete one common pattern filling one another.
+    Given our three histograms and our 100 measurements we can consider these two species as just one great set. First we consider the versicolor data, sepal width vary from 2cm to 3.4 with a greater population between 2.7cm and 3cm while the virginica measurement show us a width variation from 2.2cm to 3.8 with most of the samples taking 2.8cm and 3cm. Just looking at this major distribution, we can assume both spieces develop the most between 2.7-3cm. When we look at the unique histogram showing all measurements we see the core of sepal witdh for irises, but not only this, we also can assume that measurements complete one common pattern filling one another.  
     Also we can consider that both spiecies have a common average and they share some isolated greater or smaller measurements. Assuming that two completely different spieces would have grown some very own features, looking just at sepal width we can't totally affirm that virginica and versicolor represent two different spieces.
     
 * **Hypothesis B**: The virginica and versicolor iris species are different in terms of sepal width.
-
+    Now why would we assume that virginica and versicolor in fact really are two different species and they show different features ?
+    The first reason is in the contradiction of two histograms:
 
 ## Exercise 4
 
 
 ## Exercise 5
-
-
-## Exercise 6
-
 
 
 [^1]:<http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R>
