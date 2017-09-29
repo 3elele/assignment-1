@@ -51,34 +51,101 @@ Starting from this I made some research[^1]  and I found some interesting facts:
     1. Integers set from which to sample datas = our *statement 1*;
     2. Size of resulting set = our *statement 3*;
     3. Boolean value `replace`indicating if resulting set may contain replacements. In our case we have the obligation to say True due to size being larger than datas;
-    4. A probability weights vector = our *statement 2*;
-
+    4. A probability weights vector = our *statement 2*;  
 * **Statement 6.** In our last statement the most important element is the package `tibble`, it made my first obstacle in this assignement with the message:  
     
     > Line 15 Error in loadNamespace(name) : there is no package called 'tibble' Calls: <Anonymous> ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous> Execution halted
     
-    Asking for some help to a fellow, she told me how to install this package, so I made some research to understand how it works and why when I run `fake_data_set` it return
-`# A tibble: 400 x 1  
-   "Fake measurement"  
-                <dbl>  
- 1                  1  
- 2                  1  
- 3                  2  
- 4                  5  
- 5                  1  
- 6                  0  
- 7                  5  
- 8                  2  
- 9                  2  
-10                  1  
-# ... with 390 more rows`  
-Using *help("tibble")* the topic shown is **Build a list**, it explains basically how *list()* and *data.frame()* functions can be used to show data. Doing some deeper research on the web I found out that the *tibble* package in a certain way comes from *data.frame()*, representing a modern reimagining[^4] of it.
+    Asking for some help to a fellow, she told me how to install this package, so I made some research to understand how it works and why when we run `fake_data_set` it returns a this line `# A tibble: 400 x 1` followed by 10 lines of a random number from 0 to 5 (our possible outcomes) and the mention `# ... with 390 more rows`.  
+    Using *help("tibble")* the topic shown is **Build a list**, it explains basically how *list()* and *data.frame()* functions can be used to show data. Doing some deeper research on the web I found out that the *tibble* package in a certain way comes from *data.frame()*, representing a modern reimagining[^4] of it.
 
-```{r}
+
+```{r, echo=FALSE}
 ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) + ggplot2::geom_histogram(bins=5, colour="black", fill="lightgrey")
 ```
 
-## Exercise 3
+## Exercise 3 {#data_list}
+
+**Question 3a.** The two histograms here  show a data subset from the Iris study. We have two out of three species data, vertical axis shows the number of irises measured for every spieces, 50 samples for each, while horizontal axis show the sepal width measurement from 2 (minimum sepal width for versicolor) cm to 3.8 cm (maximum sepal width for virginica iris).  
+
+We have for *versicolor*:  
+- 2cm on 1 sample;  
+- 2.2cm on 2 samples;  
+- 2.3cm on 3 samples;  
+- 2.4cm on 3 samples;  
+- 2.5cm on 4 samples;  
+- 2.6cm on 3 samples;  
+- 2.7cm on 5 samples;  
+- 2.8cm on 6 samples;  
+- 2.9cm on 7 samples;  
+- 3cm on 8 samples;  
+- 3.1cm on 3 samples;  
+- 3.2cm on 3 samples;  
+- 3.3cm on 1 sample;  
+- 3.4cm on 1 sample;  
+  
+For *virginica*:  
+- 2.2cm on 1 sample;  
+- 2.5cm on 4 samples;  
+- 2.6cm on 2 samples;  
+- 2.7cm on 4 samples;  
+- 2.8cm on 8 camples;  
+- 2.9cm on 2 samples;  
+- 3cm on 12 samples;  
+- 3.1cm on 4 samples;  
+- 3.2cm on 5 samples;  
+- 3.3cm on 3 samples;  
+- 3.4cm on 2 samples;  
+- 3.6cm on 1 sample;  
+- 3.8cm on 2 samples;  
+
+```{r, echo=FALSE}
+iris_groups23 <- dplyr::filter(iris, Species %in% c("versicolor", "virginica"))
+ggplot2::ggplot(iris_groups23, ggplot2::aes(x=Sepal.Width)) +
+  ggplot2::geom_histogram(colour="black", fill="lightgrey", binwidth=0.1) +
+  ggplot2::facet_grid(Species ~ .)
+```
+
+This is my drawing for the *versicolor* subset:
+
+```{r, out.width='30%', echo=FALSE}
+knitr::include_graphics("exo3a.jpg")
+```
+
+**Question 3b.** Here the histogram with both groups pooled together. We can simply confirm that it contains all the data from the other two thanks to the [data list](#data_list) at the beginning. In all the 100 counts we have:  
+
+- 2cm for 1 sample;  
+- 2.2cm for 3 samples;  
+- 2.3cm for 3 samples;  
+- 2.4cm for 3 samples;  
+- 2.5cm for 8 samples;  
+- 2.6cm for 5 samples;  
+- 2.7cm for 9 samples;  
+- 2.8cm for 14 samples;  
+- 2.9cm for 9 samples;  
+- 3cm for 20 samples;  
+- 3.1cm for 7 samples;  
+- 3.2cm for 8 samples;  
+- 3.3cm for 4 samples;  
+- 3.4cm for 3 samples;  
+- 3.6cm for 1 sample;  
+- 3.8cm for 2 samples;  
+
+```{r, echo=FALSE}
+iris_groups23 <- dplyr::filter(iris, Species %in% c("versicolor", "virginica"))
+ggplot2::ggplot(iris_groups23, ggplot2::aes(x=Sepal.Width)) +
+  ggplot2::geom_histogram(colour="black", fill="lightgrey", binwidth=0.1)
+```
+
+**Question 3c-d.**
+
+Once we have discussed the histograms, we can now start to make hypothesis and discussing what all our measurements on sepal width really mean:
+
+* **Hypothesis A**: The virginica and versicolor iris species are the same in terms of sepal width.  
+    Given our three histograms and our 100 measurements we can consider these two species as just one great set. First we consider the versicolor data, sepal width vary from 2cm to 3.4 with a greater population between 2.7cm and 3cm while the virginica measurement show us a width variation from 2.2cm to 3.8 with most of the samples taking 2.8cm and 3cm. Just looking at this major distribution, we can assume both spieces develop the most between 2.7-3cm. When we look at the unique histogram showing all measurements we see the core of sepal witdh for irises, but not only this, we also can assume that measurements complete one common pattern filling one another.
+    Also we can consider that both spiecies have a common average and they share some isolated greater or smaller measurements. Assuming that two completely different spieces would have grown some very own features, looking just at sepal width we can't totally affirm that virginica and versicolor represent two different spieces.
+    
+* **Hypothesis B**: The virginica and versicolor iris species are different in terms of sepal width.
 
 
 ## Exercise 4
