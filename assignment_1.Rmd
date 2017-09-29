@@ -151,7 +151,7 @@ Once we have discussed the histograms, we can now start to make hypothesis and d
     Another interesting fact we can consider to distinguish versicolor and virginica could be minimum and maximum values these two spieces can reach. I'm going to make a cross-domain comparaison to better explain the reason why this hypothesis is more realistic. Like in phonetics we can use the F2 values to determine a boundary between plosives preceeding various vowels (I mostly took the idea from another class[^5]), we can assume that a common feature shared by all the samples we analyse and apparently distibuted in average, F2 for the phonetics examples, sepal width here for irises, could help in determine a starting and an ending point of a specific segment in order to distinguish it from another.
 
 ## Exercise 4
-The following bar plots represent, in a large collection of English dictionaries, the number of times the word **permit** as a *noun* or a *verb* was marked as having the stress on the first or on the second syllable.  
+The following bar plots represent the number of times the word **permit** as a *noun* or a *verb* was marked as having the stress on the first or on the second syllable, samples are taken from a large collection of English dictionaries in an order of 46 for each category.  
 
 ```{r, echo=FALSE}
 ggplot2::ggplot(stressshift::stress_shift_permit,
@@ -174,8 +174,8 @@ ggplot2::ggplot(stressshift::stress_shift_permit, ggplot2::aes(x=0, fill=Syllabl
 
 We now are going to discuss two hypotheses, like we did before with the irises example:
 
-* **Hypothesis A**: Permit (noun) and permit (verb) are the same in terms of their stress.
-* **Hypothesis B**: Permit (noun) and permit (verb) are different in terms of their stress.
+* **Hypothesis A**: **Permit (noun)** and **permit (verb)** are the same in terms of their stress.
+* **Hypothesis B**: **Permit (noun)** and **permit (verb)** are different in terms of their stress.
 
 Why isn’t the question already answered for us by this graph? Explain what the two hypotheses really mean, like you did in the previous exercise. Make reference to the figures above. Be specific about exactly what we would predict to observe for permit (noun) and permit (verb) under each of the two hypotheses.
 
@@ -201,7 +201,7 @@ The above histogram is count data: frequency counts from a corpus for verbs cont
 * **Hypothesis B**: Semantically transparent and opaque ver- verbs are different in terms of their frequency.
 Why isn’t the question already answered for us by this graph? Explain what the two hypotheses really mean, like you did in the previous exercise. Make reference to the figures above. Be specific about exactly what we would predict to observe for transparent and opaque verbs under each of the two hypotheses.
 
-
+<!--references-->
 [^1]:<http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R>
 [^2]:<https://stats.stackexchange.com/questions/86285/random-number-set-seedn-in-r>
 [^3]:<https://stackoverflow.com/questions/13605271/reasons-for-using-the-set-seed-function>
