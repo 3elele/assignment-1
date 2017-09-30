@@ -195,13 +195,16 @@ ggplot2::ggplot(ver_balanced, ggplot2::aes(x=Frequency)) +
   ggplot2::facet_grid(SemanticClass ~ .)
 ```
 
-**Question 5a.** We now face a count data histogram fo frequency counts from a Dutch corpus, in details frequency of verbs presenting the prefix *ver-* (it is near to the English verbs prefix *for-*). The aspect we want to analise here is the semantic appearance of ver- verbs, we distinguish, in a count of 198 samples for each group, between semantic transparent verbs, where thanks to surface structure and morphological elements the meaning of the verb can be simply recognized[^7] and opaque verbs whose morphology cannot help so much in the meaning recognition[^8]. 
+**Question 5a.** We now face a count data histogram fo frequency counts from a Dutch corpus, in details frequency of verbs presenting the prefix *ver-* (it is near to the English verbs prefix *for-*). The aspect we want to analise here is the semantic appearance of ver- verbs, we distinguish, in a count of 198 samples for each group, between semantic transparent verbs, whose thanks to their surface structure and morphological elements the meaning of the verb can be recognized[^7] and opaque verbs whose morphology cannot help so much in the meaning recognition[^8]. 
 
 **Question 5b-c.** We take on discussion as usual:  
 
 * **Hypothesis A**: Semantically transparent and opaque ver- verbs are the same in terms of their frequency.  
+    In order to verify this hypothesis we would expect the plots of both transparent and opaque verbs look pretty much the same. Opaque verbs would present much more counts in low frequency and the high frequency area would be totally empty. On the other side transparent verbs would distribuite their counts instead of just being attested on low frequency zone.  
     
-* **Hypothesis B**: Semantically transparent and opaque ver- verbs are different in terms of their frequency.
+* **Hypothesis B**: Semantically transparent and opaque ver- verbs are different in terms of their frequency.  
+    As we can remark the bar plots aren't really similar, for transparent verbs low frequency counts represent a large majority of the data, showing the first bar higher than 150 counts. Transparent ver- verbs not having a great frequency count we can assume they really play a marginal role while the opaque verbs distribution shows a slightly more important presence in our corpus, this can take us to think that ver- verbs in Dutch don't really link their morphology to their semantic.
+    This hypothesis is in my idea more interesting and near to reality, not only because looking at the bar plots we see a slightly difference in frequency between the two kinds of verbs we analise, but also because considering *ver-* verb prefix as a sort of correspondent of *for-* English verb prefix, we can use the English vocabulary as a reference and in a personal global view I consider opaque verbs much frequent than transparent ones in with this construction.
 
 <!--references-->
 [^1]:<http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R>
