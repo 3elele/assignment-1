@@ -194,14 +194,12 @@ ggplot2::ggplot(ver_balanced, ggplot2::aes(x=Frequency)) +
   ggplot2::facet_grid(SemanticClass ~ .)
 ```
 
-**Question 5a.** This is a histogram of count data. Thus, there are two kinds of counts involved in generating this data set. Explain in your own words what they each are.
-The above histogram is count data: frequency counts from a corpus for verbs containing the Dutch prefix ver-. This prefix is cognate with the now somewhat rare English prefix for-, as in forswear, forbid, and forget. Dutch verbieden has the same meaning as English forbid, and as should be evident, there is (today) nothing that transparently resembles the meaning of bid (as in, make a bet) in either forbid or verbieden. Thus both are semantically “opaque.” Dutch, however, has some ver- verbs that are semantically transparent (verminderen: minder means “fewer”, and verminderen means “reduce”, i.e., “make fewer”). These histograms are grouped according to whether they are semantically opaque or semantically transparent. There are 198 observations in each group. The bin width is 250, as above, inclusive on the bottom, exclusive on the top.
+**Question 5a.** We now face a count data histogram fo frequency counts from a Dutch corpus, in details frequency of verbs presenting the prefix *ver-* (it is near to the English verbs prefix *for-*). The aspect we want to analise here is the semantic appearance of ver- verbs, we distinguish, in a count of 198 samples for each group, between semantic transparent verbs, where thanks to surface structure and morphological elements the meaning of the verb can be simply recognized[^7] and opaque verbs whose morphology cannot help so much in the meaning recognition[^8]. 
 
 **Question 5b-c.** We take on discussion as usual:  
 
 * **Hypothesis A**: Semantically transparent and opaque ver- verbs are the same in terms of their frequency.
 * **Hypothesis B**: Semantically transparent and opaque ver- verbs are different in terms of their frequency.
-Why isn’t the question already answered for us by this graph? Explain what the two hypotheses really mean, like you did in the previous exercise. Make reference to the figures above. Be specific about exactly what we would predict to observe for transparent and opaque verbs under each of the two hypotheses.
 
 <!--references-->
 [^1]:<http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R>
@@ -210,3 +208,5 @@ Why isn’t the question already answered for us by this graph? Explain what the
 [^4]:<https://blog.rstudio.com/2016/03/24/tibble-1-0-0/>
 [^5]: *last four slides* <http://jacqueline.vaissiere.ilpga.fr/COURS2017/COURS1.pdf>
 [^6]:<https://www.englishclub.com/pronunciation/word-stress-rules.htm>
+[^7]:<https://www.thoughtco.com/semantic-transparency-1691939>
+[^8]:<https://link.springer.com/article/10.3758/s13421-014-0430-1?no-access=true>
