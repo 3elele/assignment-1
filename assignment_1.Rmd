@@ -33,8 +33,8 @@ fake_data_set <- tibble::data_frame(`Fake measurement`=fake_data_points)
 * **Statement 1.** `possible_outcomes` is the first variable created in this code chunk, the `<-` element after a variable name indicates what are the values (all must be of the same type) we assign to it.
     + Instead of a common programming *variable* **R**'s ones can be more dynamic, we can assign multiple values to one variable and every time we do an operation on this variables it will be applied to all of its values;
     + *Vectors* like Variables made by all the values we assign to them in the `c()` expression, we can access to a specific value calling it like a common array (index starting at 1) `possible_outcomes[3]` corresponds to `[1] 2`;
-    + When we *"print"* a variable on the *RStudio* console, a number inside brackets also appears, it indicates the vector *level* we are looking to;
-
+    + When we *"print"* a variable on the *RStudio* console, a number inside brackets also appears, it indicates the vector *level* we are looking to;  
+  
 * **Statement 2.** `outcome_probabilities` like the first one, this variable too has 5 numerical values in it, this time they are not just integer numbers but decimal ones. By it name we can guess this vector will indicates the probabilities which will be applied to the outcomes definied earlier.
 
 * **Statement 3.** `n_data_points` this time our variable is just an integer, its value maybe indicates the number of measurements made to obtain our outcomes.
@@ -52,6 +52,7 @@ Starting from this I made some research[^1]  and I found some interesting facts:
     2. Size of resulting set = our *statement 3*;
     3. Boolean value `replace`indicating if resulting set may contain replacements. In our case we have the obligation to say True due to size being larger than datas;
     4. A probability weights vector = our *statement 2*;  
+    
 * **Statement 6.** In our last statement the most important element is the package `tibble`, it made my first obstacle in this assignement with the message:  
     
     > Line 15 Error in loadNamespace(name) : there is no package called 'tibble' Calls: <Anonymous> ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous> Execution halted
@@ -198,7 +199,8 @@ ggplot2::ggplot(ver_balanced, ggplot2::aes(x=Frequency)) +
 
 **Question 5b-c.** We take on discussion as usual:  
 
-* **Hypothesis A**: Semantically transparent and opaque ver- verbs are the same in terms of their frequency.
+* **Hypothesis A**: Semantically transparent and opaque ver- verbs are the same in terms of their frequency.  
+    
 * **Hypothesis B**: Semantically transparent and opaque ver- verbs are different in terms of their frequency.
 
 <!--references-->
